@@ -1,7 +1,7 @@
 
 view: daily_trx_trend_value__prediction_result {
   derived_table: {
-    sql: SELECT * FROM ml.PREDICT(
+    sql: SELECT * FROM ML.PREDICT(
         MODEL ${daily_trx_trend_value__model.SQL_TABLE_NAME}, (
             SELECT * FROM ${daily_trx_trend_value__validation_data.SQL_TABLE_NAME}
         )
