@@ -2,68 +2,39 @@
 view: taxi_trips__evaluation_result {
   derived_table: {
     sql:
-    SELECT * EXCEPT(SEASONAL_PERIODS)
-    FROM ML.ARIMA_EVALUATE (MODEL ${taxi_trips__model.SQL_TABLE_NAME}),
-         UNNEST(SEASONAL_PERIODS) as seasonal_periods_str;;
+    SELECT * FROM ML.EVALUATE(
+      MODEL ${taxi_trips__model.SQL_TABLE_NAME}, (
+        SELECT
+          CAST(`day` AS TIMESTAMP) ts,
+          total_rides
+        FROM ${taxi_trips__validation.SQL_TABLE_NAME}
+      ),
+      STRUCT(TRUE AS perform_aggregation, 180 AS horizon)
+    );;
   }
 
-  dimension: non_seasonal_p {
+  dimension: mean_absolute_error {
     type: number
-    sql: ${TABLE}.non_seasonal_p;;
+    sql: ${TABLE}.mean_absolute_error;;
   }
 
-  dimension: non_seasonal_d {
+  dimension: mean_squared_error {
     type: number
-    sql: ${TABLE}.non_seasonal_d;;
+    sql: ${TABLE}.mean_squared_error;;
   }
 
-  dimension: non_seasonal_q {
+  dimension: root_mean_squared_error {
     type: number
-    sql: ${TABLE}.non_seasonal_q;;
+    sql: ${TABLE}.root_mean_squared_error;;
   }
 
-  dimension: has_drift {
-    type: yesno
-    sql: ${TABLE}.has_drift;;
-  }
-
-  dimension: log_likelihood {
+  dimension: mean_absolute_percentage_error {
     type: number
-    sql: ${TABLE}.log_likelihood;;
+    sql: ${TABLE}.mean_absolute_percentage_error;;
   }
 
-  dimension: aic {
+  dimension: symmetric_mean_absolute_percentage_error {
     type: number
-    sql: ${TABLE}.aic;;
-  }
-
-  dimension: variance {
-    type: number
-    sql: ${TABLE}.variance;;
-  }
-
-  dimension: seasonal_periods_str {
-    type: string
-    sql: ${TABLE}.seasonal_periods_str;;
-  }
-
-  dimension: has_holiday_effect {
-    type: yesno
-    sql: ${TABLE}.has_holiday_effect;;
-  }
-
-  dimension: has_spikes_and_dips {
-    type: yesno
-    sql: ${TABLE}.has_spikes_and_dips;;
-  }
-
-  dimension: has_step_changes {
-    type: yesno
-    sql: ${TABLE}.has_step_changes;;
-  }
-
-  dimension: error_message {
-    type: string
-    sql: ${TABLE}.error_message;;
+    sql: ${TABLE}.symmetric_mean_absolute_percentage_error;;
   }
 }

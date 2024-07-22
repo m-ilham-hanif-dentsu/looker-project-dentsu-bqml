@@ -38,6 +38,14 @@ explore: taxi_trips__model {
   from: taxi_trips__model
 }
 
+explore: taxi_trips__arima_evaluation_result {
+  from: taxi_trips__arima_evaluation_result
+}
+
 explore: taxi_trips__evaluation_result {
   from: taxi_trips__evaluation_result
+}
+
+explore: taxi_trips__forecast {
+  from: taxi_trips__forecast
 }
