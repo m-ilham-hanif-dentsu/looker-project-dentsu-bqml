@@ -2,7 +2,9 @@
 view: taxi_trips__evaluation_result {
   derived_table: {
     sql:
-    SELECT * FROM ML.ARIMA_EVALUATE (MODEL ${taxi_trips__model.SQL_TABLE_NAME});;
+    SELECT * EXCEPT(SEASONAL_PERIODS)
+    FROM ML.ARIMA_EVALUATE (MODEL ${taxi_trips__model.SQL_TABLE_NAME}),
+         UNNEST(SEASONAL_PERIODS) as seasonal_periods_str;;
   }
 
   dimension: non_seasonal_p {
