@@ -1,6 +1,5 @@
 
 view: daily_trx_trend_value__dataset {
-  # sql_table_name: `ml.daily_trx_trend_value` ;;
   derived_table: {
     sql:
 SELECT `date` AS dt, `meantemp` AS value FROM `ml.daily_climate__training_data`
