@@ -8,7 +8,7 @@ connection: "dentsu_bqml"
 datagroup: datagroup__daily_trx_trend_value__model {
   max_cache_age: "0 minutes"
   interval_trigger: "10 minutes"
-  description: "This datagroup will refresh all connected table every 10m."
+  description: "This datagroup will refresh all connected model every 10m."
 }
 
 # Explore (data model)
