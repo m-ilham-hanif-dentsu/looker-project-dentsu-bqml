@@ -42,9 +42,9 @@ view: taxi_trips__evaluation_result {
     sql: ${TABLE}.variance;;
   }
 
-  dimension: seasonal_periods {
+  dimension: seasonal_periods_str {
     type: string
-    sql: ${TABLE}.seasonal_periods;;
+    sql: ${TABLE}.seasonal_periods_str;;
   }
 
   dimension: has_holiday_effect {
