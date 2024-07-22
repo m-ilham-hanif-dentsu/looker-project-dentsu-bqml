@@ -3,10 +3,10 @@ view: daily_trx_trend_value__dataset {
   # sql_table_name: `ml.daily_trx_trend_value` ;;
   derived_table: {
     sql:
-    SELECT `Date` as dt, cast(`Open` as float64) value FROM `ml.exxon_stock`
-    WHERE 1=1
-    and `Date` >= '2024-01-01'
-    ORDER BY 1 DESC;;
+SELECT `date` AS dt, `meantemp` AS value FROM `ml.daily_climate__training_data`
+UNION ALL
+SELECT `date` AS dt, `meantemp` AS value FROM `ml.daily_climate__validation_data`
+ORDER BY 1;;
   }
 
   measure: count {

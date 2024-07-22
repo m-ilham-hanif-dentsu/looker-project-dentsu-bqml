@@ -5,7 +5,7 @@ view: daily_trx_trend_value__validation_data {
       column: dt {}
       column: value {}
       filters: [
-        daily_trx_trend_value__dataset.dt: "after 2024/04/01"
+        daily_trx_trend_value__dataset.dt: "after 2017/01/01"
       ]
     }
   }
