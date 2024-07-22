@@ -12,7 +12,7 @@ datagroup: datagroup__daily_trx_trend_value__model {
 }
 
 # Explore (data model)
-include: "/views/*.view.lkml" # include all views in the views/ folder in this project
+include: "/views/**/*.view.lkml" # include all views in the views/ folder in this project
 
 explore: daily_trx_trend_value__dataset {
   from: daily_trx_trend_value__dataset
