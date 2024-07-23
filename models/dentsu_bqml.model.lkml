@@ -49,3 +49,7 @@ explore: taxi_trips__evaluation_result {
 explore: taxi_trips__forecast {
   from: taxi_trips__forecast
 }
+
+explore: taxi_trips__comparison {
+  from: taxi_trips__comparison
+}
