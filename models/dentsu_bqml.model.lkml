@@ -22,6 +22,7 @@ explore: daily_trx_trend_value__dataset {
 explore: daily_trx_trend_value__model {
   persist_with: datagroup__model
   from: daily_trx_trend_value__model
+  hidden: yes
 }
 
 explore: daily_trx_trend_value__prediction_result {
@@ -36,6 +37,7 @@ explore: daily_trx_trend_value__evaluation_result {
 explore: taxi_trips__model {
   persist_with: datagroup__model
   from: taxi_trips__model
+  hidden: yes
 }
 
 explore: taxi_trips__arima_evaluation_result {
@@ -48,8 +50,4 @@ explore: taxi_trips__evaluation_result {
 
 explore: taxi_trips__forecast {
   from: taxi_trips__forecast
-}
-
-explore: taxi_trips__comparison {
-  from: taxi_trips__comparison
 }
