@@ -9,7 +9,7 @@ view: taxi_trips__evaluation_result {
           total_rides
         FROM ${taxi_trips__validation.SQL_TABLE_NAME}
       ),
-      STRUCT(TRUE AS perform_aggregation, 365 AS horizon)
+      STRUCT(TRUE AS perform_aggregation, 30 AS horizon)
     );;
   }
 

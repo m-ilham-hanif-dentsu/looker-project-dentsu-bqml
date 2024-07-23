@@ -8,7 +8,7 @@ view: taxi_trips__model {
         TIME_SERIES_TIMESTAMP_COL='ts',
         TIME_SERIES_DATA_COL='total_rides',
         HOLIDAY_REGION='US',
-        HORIZON=365
+        HORIZON=90
     ) AS
     SELECT
         CAST(day AS TIMESTAMP) ts,
