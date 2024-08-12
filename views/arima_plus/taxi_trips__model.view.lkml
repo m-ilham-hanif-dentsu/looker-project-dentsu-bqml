@@ -14,6 +14,6 @@ view: taxi_trips__model {
         CAST(day AS TIMESTAMP) ts,
         total_rides
     FROM ${taxi_trips__training.SQL_TABLE_NAME};;
-    datagroup_trigger: datagroup__model
+    datagroup_trigger: datagroup__refresh_every_hour
   }
 }

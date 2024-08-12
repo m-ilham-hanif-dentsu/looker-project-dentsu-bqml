@@ -9,6 +9,6 @@ view: daily_trx_trend_value__model {
         input_label_cols = ['value']
     ) AS
     SELECT dt, value FROM ${daily_trx_trend_value__training_data.SQL_TABLE_NAME};;
-    datagroup_trigger: datagroup__model
+    datagroup_trigger: datagroup__refresh_everyday
   }
 }
