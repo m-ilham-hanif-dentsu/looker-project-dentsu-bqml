@@ -2,17 +2,14 @@
 connection: "dentsu_bqml"
 
 # Datagroup
-# Set max_cache_age to 0 minutes.
-# If max_cache_age > interval_trigger, then whenever a new PDT table is created, it wont refer to
-#    the newest table. Instead, it will wait until cache age expired before using the new table.
 datagroup: datagroup__refresh_every_hour {
-  max_cache_age: "0 minutes"
+  max_cache_age: "90 minutes"
   interval_trigger: "60 minutes"
   description: "This datagroup will refresh all connected explore every 60m."
 }
 
 datagroup: datagroup__refresh_everyday {
-  max_cache_age: "0 minutes"
+  max_cache_age: "36 hours"
   sql_trigger: SELECT CURRENT_DATE("Asia/Jakarta") ;;
   description: "This datagroup will refresh all connected explore everyday."
 }
